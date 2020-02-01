@@ -1,6 +1,9 @@
 <?php
-if (isset($_GET['mes']) && isset($_GET['ano'])) {
+if ($_GET['mes']="a" && $_GET['ano']="a") {
     /* captura los datos */
+    $mes = "a";
+    $ano = "a";
+}else{
     $mes = $_GET['mes'];
     $ano = $_GET['ano'];
 }

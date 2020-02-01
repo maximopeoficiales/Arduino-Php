@@ -1,13 +1,11 @@
 <?php
-
-
 $registros = array();
 $mysqli = new mysqli("localhost", "root", "", "registros", 3307);
 $mysqli->set_charset('utf8');
-if (isset($ano) && isset($mes)) {
-    $statement = $mysqli->prepare("SELECT * FROM datos WHERE MONTH(fecha) ='$mes'AND year(fecha)='$ano'");
-}else{
+if ($año="a" && $mes="a") {
     $statement = $mysqli->prepare("SELECT * FROM datos");
+}else{
+    $statement = $mysqli->prepare("SELECT * FROM datos WHERE MONTH(fecha) ='$mes'AND year(fecha)='$ano'");
 }
 $statement->execute();
 $resultado = $statement->get_result();

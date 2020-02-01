@@ -10,14 +10,15 @@ $template = '
 <h1 class="text-center">Bienvenido ' . $datos[0]['nombre'] . '</h1>
 ';
 print($template);
-
+$mes =  "a";
+$ano = "a";
 if (isset($_POST['fecha'])) {
-    
-    $fecha=$_POST['fecha'];
-    $mes = substr($fecha, -2); 
-    $ano= substr($fecha,0,-3);
+
+    $fecha = $_POST['fecha'];
+    $mes = substr($fecha, -2);
+    $ano = substr($fecha, 0, -3);
     $registros_controller = new RegistrosController();
-    $registros=$registros_controller->GetFechaPorMes($mes,$ano);
+    $registros = $registros_controller->GetFechaPorMes($mes, $ano);
 }
 ?>
 
@@ -61,11 +62,13 @@ if (isset($_POST['fecha'])) {
     </div>
 
     <?php
-    $boton= '
-    <a href="MPDF/app/index.php?ano='.$ano.'&mes='.$mes.'" class="btn btn-primary float-right" target="s"><i class="fas fa-print mr-1"></i>Imprimir</a>
-    ';
+
+    $boton = '
+    <a href="MPDF/app/index.php?ano=' . $ano . '&mes=' . $mes . '" class="btn btn-primary float-right" target="s"><i class="fas fa-print mr-1"></i>Imprimir</a>
+    <br><br>';
     print($boton);
     ?>
+    
 </div>
 
 <?php include("includes/footer.php") ?>
